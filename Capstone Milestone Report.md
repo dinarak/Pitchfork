@@ -50,4 +50,12 @@ Field name	| Description |	Format
 
 ### Cleaning the data (Jupyter notebook [here](https://github.com/dinarak/Pitchfork/blob/master/Pitchfork%20data%20wrangling%20-%20for%20submission.ipynb))
 
-
+1. I pulled the data into a dataframe:
+ - joined the SQLite the tables `content`, `genres`, `labels`, `reviews`, `years` on review ID. (The `reviews` table already had info on the artists, so there was no need to join the `artists` table to the rest of the tables.)
+ - and extracted the data into a dataframe.
+2. Explored the dataset with [Pandas Profiling] (https://github.com/pandas-profiling/pandas-profiling/blob/master/README.md), and found that there are a number of duplicate entries. Removed the duplicates.
+3. Did a quick clean-up to make sure there's only one row per review ID in the dataframe: 
+    - grouped the dataframe by review ID and URL
+    - and for each such tuple made sure to keep a row that had the most non-null values.
+4. 13th element in the notebook    
+    
