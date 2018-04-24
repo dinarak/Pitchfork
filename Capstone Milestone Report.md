@@ -44,9 +44,9 @@ Field name	| Description |	Format
 `url` |	Review URL |	String
 `year` |	Year of album release. <br> Sometimes Pitchfork reviews albums from the previous year (usually in early January), or from the forthcoming year (usually in December). Likewise, Pitchfork often reviews reissues and lists the original release year along with the reissue year. |	Numeric
 
-### Features we were interested in initially
+### Features I was interested in initially
 
-**Dependent variable:** `score`. Depending on availability of data, we could also try to predict album sales and/or online streaming numbers.
+**Dependent variable:** `score`. Depending on availability of data, I could also try to predict album sales and/or online streaming numbers.
 
 **Independent variables:** `artist`, `author`, `content`, `genre`, `label`, `pub_date`, `title`. 
 
@@ -57,7 +57,7 @@ Field name	| Description |	Format
     - joined the SQLite the tables `content`, `genres`, `labels`, `reviews`, `years` on review ID. (The `reviews` table already had info on the artists, so there was no need to join the `artists` table to the rest of the tables.)
     - and extracted the data into a dataframe.
 2. Explored the dataset with [Pandas Profiling](https://github.com/pandas-profiling/pandas-profiling/blob/master/README.md), and found that there are a number of duplicate entries. Removed the duplicates.
-3. Did a quick clean-up to make sure there's only one row per review ID in the dataframe. In case we need more granularity on data, we could pull up the specific tables from SQLite database again, but this will do for now.
+3. Did a quick clean-up to make sure there's only one row per review ID in the dataframe. In case more granularity is required, I could pull up the specific tables from SQLite database again, but this will do for now.
     - grouped the entries by review ID and URL
     - and for each such tuple made sure to keep a row that had the most non-null values.
 4. Removed rows with empty strings in `content` column. 
@@ -82,14 +82,14 @@ Full data story is in [this Jupyter notebook](https://github.com/dinarak/Pitchfo
 
     Stat | Number
     :------- | ------:
-    count   | 18379
-    mean    | 7.00
-    std     | 1.29
-    min     | 0.00
-    25%     | 6.40
-    50%     | 7.20
-    75%     | 7.80
-    max     | 10.00
+    count   | 18379.0
+    mean    | 7.0
+    std     | 1.3
+    min     | 0.0
+    25%     | 6.4
+    50%     | 7.2
+    75%     | 7.8
+    max     | 10.0
 
     With the following boxplot:
 
